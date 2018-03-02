@@ -1,0 +1,130 @@
+<html>
+   <head>
+        <title>Custom T-Shirt Quote | Works In Progress NYC</title>
+        <link href="./resources/css/style.css" type="text/css" rel="stylesheet">
+
+        <style>
+        .quote {
+            width: 320px;
+            padding: 10px;
+            border: 5px solid gray;
+            margin: 50;
+            background-color: aqua;
+        }
+        </style>
+
+   </head>
+
+   <body>
+      <h1> Works In Progress - Custom T-shirt Quote</h1>
+      <br>
+      <form name=”quick_quote”>
+
+            <div id="select_brand">
+                <h2>Select your t-shirt brand</h2>
+                <input type="radio" id="brand1" name="brand" value="guildan">
+                <label for="brand1">Guildan</label>
+                <br>
+                <input type="radio" id="brand2" name="brand" value="american">
+                <label for="brand2">American Apparel</label>
+                <br>
+                <input type="radio" id="brand3" name="brand" value="anvil">
+                <label for="brand3">Anvil</label>
+                <br>
+                <input type="radio" id="brand4" name="brand" value="fruit">
+                <label for="brand4">Fruit of the loom</label>
+                <br>
+                <input type="radio" id="brand5" name="brand" value="alternative">
+                <label for="brand5">Alternative</label>
+            </div>
+            <br>
+
+            <div id="select_qty">
+                <h2>How many t-shirts do you need?</h2>
+                <label for="qty1">Small:</label><input type="number" id="qty1" name="qty" value="0"
+                onchange="calculate(this.form);">
+                <br>
+                <label for="qty2">Medium:</label><input type="number" id="qty2" name="qty" value="0"
+                onchange="calculate(this.form);">
+                <br>
+                <label for="qty3">Large:   </label><input type="number" id="qty3" name="qty" value="0"
+                onchange="calculate(this.form);">
+                <br>
+                <label for="qty4">X-Large: </label><input type="number" id="qty4" name="qty" value="0"
+                onchange="calculate(this.form);">
+                <br>
+                <p>All sizes combined: <input name="total" type="text" size="4" readonly="readonly" /> t-shirts.</p>
+            </div>
+            <br>
+
+            <div id="colorsContainer">
+                <h2>Select the color of your t-shirts</h2>
+                              <div id="shamrock green" style="background-color:#189357;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 178);" title="shamrock green">&nbsp;</div>
+                              <div id="smoke grey" style="background-color:#56575B;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 116);" title="smoke grey">&nbsp;</div>
+                              <div id="fatigue green" style="background-color:#727C65;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 170);" title="fatigue green">&nbsp;</div>
+                              <div id="light blue" style="background-color:#AFCDF3;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 22);" title="light blue">&nbsp;</div>
+                							<div id="cardinal red" style="background-color:#920726;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 94);" title="cardinal red">&nbsp;</div>
+                							<div id="dark chocolate" style="background-color:#251B13;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 119);" title="dark chocolate">&nbsp;</div>
+                							<div id="spearmint" style="background-color:#72c3a9;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 212);" title="spearmint">&nbsp;</div>
+                							<div id="light steel" style="background-color:#D8D7D8;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 113);" title="light steel">&nbsp;</div>
+                							<div id="maroon" style="background-color:#591e11;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 101);" title="maroon">&nbsp;</div>
+                							<div id="wow pink" style="background-color:#CF437F;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 179);" title="wow pink">&nbsp;</div>
+                              <br><br>
+                              <div id="graphite" style="background-color:#797979;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 172);" title="graphite">&nbsp;</div>
+                							<div id="aquatic blue" style="background-color:#89C7EC;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 166);" title="aquatic blue">&nbsp;</div>
+                							<div id="navy" style="background-color:#1C203B;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 48);" title="navy">&nbsp;</div>
+                							<div id="sand" style="background-color:#CCC3B1;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 107);" title="sand">&nbsp;</div>
+                							<div id="pebble" style="background-color:#C0A786;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 176);" title="pebble">&nbsp;</div>
+                							<div id="lavender" style="background-color:#A397C0;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 173);" title="lavender">&nbsp;</div>
+                							<div id="ice grey" style="background-color:#ABACA8;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 150);" title="ice grey">&nbsp;</div>
+                							<div id="natural" style="background-color:#E9E3CB;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 23);" title="natural">&nbsp;</div>
+                							<div id="yellow" style="background-color:#ffff00;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 74);" title="yellow">&nbsp;</div>
+                							<div id="texas orange" style="background-color:#B25F2D;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 19);" title="texas orange">&nbsp;</div>
+                              <br><br>
+                              <div id="kelly green" style="background-color:#108B5D;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 20);" title="kelly green">&nbsp;</div>
+                							<div id="orange" style="background-color:#D54F29;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 76);" title="orange">&nbsp;</div>
+                							<div id="deep forest" style="background-color:#06261F;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 110);" title="deep forest">&nbsp;</div>
+                							<div id="carolina blue" style="background-color:#91B0E6;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 13);" title="carolina blue">&nbsp;</div>
+                							<div id="stonewashed green" style="background-color:#A0AD93;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 118);" title="stonewashed green">&nbsp;</div>
+                							<div id="gold" style="background-color:#EDB522;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 14);" title="gold">&nbsp;</div>
+                							<div id="charcoal heather" style="background-color:#736C6A;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 181);" title="charcoal heather">&nbsp;</div>
+                							<div id="daffodil yellow" style="background-color:#FDE8AB;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 168);" title="daffodil yellow">&nbsp;</div>
+                							<div id="deep red" style="background-color:#B70A25;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 39);" title="deep red">&nbsp;</div>
+                							<div id="denim" style="background-color:#394963;width:20px;height:20px;display:block;float:left;margin-left:6px;margin-top:2px;cursor:pointer;border:1px solid transparent;" onclick="selectColor(this, 44);" title="denim">&nbsp;</div>
+
+            </div>
+            <br><br>
+            <br>
+
+            <div id="ink">
+              <h2> How many ink colors in your design?</h2>
+              <label for="ink1">Front:</label>
+              <input type="number" id="ink1" name="ink" value="0" min="0" max="4">
+              <label for="ink2">Back:</label>
+              <input type="number" id="ink2" name="ink" value="0" min="0" max="4">
+            </div>
+
+            <div id="quote" class="quote">
+                <h2>Here is your quote:</h2>
+                <h3>Your price per t-shirt is: $ 0.00</h3>
+                <h3>Your order total is: $ 0.00</h3>
+
+            </div>
+
+
+
+
+      </form>
+
+                <script type="text/javascript">
+                    function calculate(form){
+                        var sum = 0;
+                        for(var i = 0; i < form.qty.length; i++)sum += Number(form.qty[i].value);
+                        form.total.value = sum;
+                    }
+                </script>
+
+
+
+   </body>
+</html>
